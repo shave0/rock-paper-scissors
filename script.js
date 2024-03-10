@@ -18,11 +18,6 @@ function startGame(){
     playRound(getPlayerChoice(), getComputerChoice());
 }
 
-function getPlayerChoice(){
-    //let tempPlayerChoice = buttonVal;
-    playRound("Rock", getComputerChoice());
-}
-
 let scoreComputer = 0;
 let scoreUser = 0;
 
@@ -32,11 +27,8 @@ function playRound(playerSelection, computerSelection){
     const computerId = document.getElementById("computerScore");
     const resultId = document.getElementById("resultDiv");
 
-    //return playerSelection();
-    //console.log("function");
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
-
 
     if(computerSelection == playerSelection){
         console.log('Draw, both ' + computerSelection);
@@ -50,6 +42,9 @@ function playRound(playerSelection, computerSelection){
             scoreUser++;
             userId.innerHTML = "User Score: " + scoreUser;
             resultId.innerHTML = 'Win, Paper beats Rock';
+            if(scoreUser > 4){
+                gameOver("player");
+            }
             return "Win, Paper beats Rock";
         }
         else{
@@ -57,6 +52,9 @@ function playRound(playerSelection, computerSelection){
             scoreComputer++;
             computerId.innerHTML = "Computer Score: " + scoreComputer;
             resultId.innerHTML = 'Loose, Rock Beats Scissors';
+            if(scoreComputer > 4){
+                gameOver("com");
+            }
             return 'Loose, Rock Beats Scissors';
         } //User Scissors, Computer Rock
     }
@@ -67,6 +65,9 @@ function playRound(playerSelection, computerSelection){
             scoreComputer++;
             computerId.innerHTML = "Computer Score: " + scoreComputer;
             resultId.innerHTML = 'Loose, Paper beats Rock';
+            if(scoreComputer > 4){
+                gameOver("com");
+            }
             return 'Loose, Paper beats Rock';
         }
 
@@ -76,6 +77,9 @@ function playRound(playerSelection, computerSelection){
             scoreUser++;
             userId.innerHTML = "User Score: " + scoreUser;
             resultId.innerHTML = 'Win, Scissors Beats Rock';
+            if(scoreUser > 4){
+                gameOver("player");
+            }
             return 'Win, Scissors Beats Rock';
         }
     }   
@@ -86,6 +90,9 @@ function playRound(playerSelection, computerSelection){
             scoreUser++;
             userId.innerHTML = "User Score: " + scoreUser;
             resultId.innerHTML = 'Win, Rock beats Scissors';
+            if(scoreUser > 4){
+                gameOver("player");
+            }
             return 'Win, Rock beats Scissors';
         }
 
@@ -94,8 +101,27 @@ function playRound(playerSelection, computerSelection){
             scoreComputer++;
             computerId.innerHTML = "Computer Score: " + scoreComputer;
             resultId.innerHTML = 'Loose, Scissors beats Paper';
+            if(scoreComputer > 4){
+                gameOver("com");
+            }
             return'Loose, Paper beats Scissors';
         
     }
 
+}
+
+function gameOver(winner){
+
+    const gameOverId = document.getElementById("gameOverDiv");
+    const buttons = document.querySelectorAll('button');
+
+    if(winner == 'com'){
+        gameOverId.innerHTML = "Computer wins overall"
+    }
+    else{
+        gameOverId.innerHTML = "Player wins overall"
+    }
+
+    buttons.forEach((button) => {button.style.backgroundColor = 'darkgray'; button.onclick = "";});
+    
 }

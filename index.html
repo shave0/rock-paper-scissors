@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        button {background-color: white;}
+    </style>
 </head>
 <body>
-    <div>
-        <button onclick="playRound('Rock',getComputerChoice())" value="Rock">Rock</button>
-        <button onclick="playRound('Paper',getComputerChoice())" value="Paper">Paper</button>
-        <button onclick="playRound('Scissors',getComputerChoice())" value="Scissors">Scissors</button>
+    <div id="buttonDiv">
+        <button onclick="playRound('Rock',getComputerChoice())" value="Rock" class="playerButton" id="rockButton">Rock</button>
+        <button onclick="playRound('Paper',getComputerChoice())" value="Paper" class="playerButton">Paper</button>
+        <button onclick="playRound('Scissors',getComputerChoice())" value="Scissors" class="playerButton">Scissors</button>
     </div>
 
     <div>
@@ -18,6 +21,9 @@
     </div>
     <div>
         <div id="resultDiv"></div>
+    </div>
+    <div>
+        <div id="gameOverDiv"></div>
     </div>
     <script src="script.js"></script>
 </body>
