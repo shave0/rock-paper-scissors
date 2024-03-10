@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button onclick="playRound('Rock',getComputerChoice())" value="Rock">Rock</button>
+        <button onclick="playRound('Paper',getComputerChoice())" value="Paper">Paper</button>
+        <button onclick="playRound('Scissors',getComputerChoice())" value="Scissors">Scissors</button>
+    </div>
+
+    <div>
+        <div id="userScore">User Score: 0</div>
+        <div id="computerScore">Computer Score: 0</div>
+    </div>
+    <div>
+        <div id="resultDiv"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
